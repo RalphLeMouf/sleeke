@@ -1,0 +1,286 @@
+/**
+ * partials/header
+ * ---
+ */
+
+
+// Header container
+
+body.mobile-nav-open header {
+  height: 100vh;
+  overflow: auto;
+}
+
+header {
+  text-transform: normal;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; 
+  position: relative;
+  z-index: 100001;
+  z-index: 100001;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  #header-top {
+    background-color: #F7E9E7;
+    height: 33px;
+    text-align: right;
+    #header-top-inner-wrapper {
+      #header-login-link, #header-social-links {
+        display: inline-block;
+        font-size: 11px;
+        line-height: 30px;
+      }
+      #header-login-link {
+        &:hover {
+          color: #222;
+        }
+        color: #FFF;
+        margin-right: 40px;
+        text-transform: uppercase;
+        .glyphicon-user {
+          margin-right: 10px;
+        }
+      }
+      #header-social-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          display: inline-block;
+          margin-right: 10px;
+          &:last-of-type {
+            margin-right: 0;
+          }
+          a {
+            color: #FFF;
+            display: inline-block;
+            text-align: center;
+            width: 15px;
+            &:hover {
+              color: #222;
+            }
+          }
+        }
+      }
+    }
+  }
+  #header-middle {
+    background-color: #FFF;
+    border-bottom: 1px solid rgba(230, 230, 230, 0.4);
+    height: 70px;
+    margin:0 !important;
+    #header-logo {
+      display: inline-block;
+      padding: 11px 12px 0;
+      &:hover {
+        opacity: 0.7;
+      }
+      img {
+        width: 164px;
+      }
+    }
+    #header-mobile-cart-link, #header-mobile-nav-toggle {
+      border-left: 1px solid #EEE;
+      display: block;
+      height: 70px;
+      text-align: center;
+    }
+    #header-mobile-cart-link {
+      color: #222;
+      font-size: 20px;
+      padding-top: 21px;
+      width: 65px;
+    }
+    #header-mobile-nav-toggle {
+      padding-top: 33px;
+      width: 70px;
+      #burger-bar {
+        background: #222;
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        position: relative;
+        transition: background 0.6s ease 0s;
+        width: 20px;
+      }
+    }
+  }
+}
+
+body.mobile-nav-open header #header-middle #header-mobile-nav-toggle #burger-bar {
+  background: #FFF;
+}
+
+header #header-middle #header-mobile-nav-toggle #burger-bar {
+  &::before, &::after {
+    backface-visibility: hidden;
+    background: inherit;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transform: translateZ(0px);
+    transition: transform 0.6s ease 0s;
+    width: 100%;
+  }
+}
+
+body.mobile-nav-open header #header-middle #header-mobile-nav-toggle #burger-bar {
+  &::before, &::after {
+    background: #222;
+  }
+}
+
+header #header-middle #header-mobile-nav-toggle #burger-bar::before {
+  top: -6px;
+  transform: rotate(0deg);
+}
+
+body.mobile-nav-open header #header-middle #header-mobile-nav-toggle #burger-bar::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+header #header-middle #header-mobile-nav-toggle #burger-bar::after {
+  bottom: -6px;
+  transform: rotate(0deg);
+}
+
+body.mobile-nav-open header {
+  #header-middle #header-mobile-nav-toggle #burger-bar::after {
+    bottom: 0;
+    transform: rotate(225deg);
+  }
+  #header-bottom #header-nav {
+    height: 426px;
+    overflow: auto;
+  }
+}
+
+header #header-bottom #header-nav {
+  background-color: #1E1E20;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease 0s;
+  #header-nav-mobile-search-form {
+    padding: 0 30px;
+    position: relative;
+    .search-field {
+      background-color: #2C2C2C;
+      border: none;
+      color: #DDD;
+      height: 40px;
+      padding: 0 42px 0 18px;
+      width: 100%;
+    }
+    .glyphicon-search {
+      color: #DDD;
+      font-size: 18px;
+      position: absolute;
+      right: 46px;
+      top: 10px;
+    }
+  }
+  #header-nav-mobile-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    height: 0;
+    opacity: 0;
+    position: fixed;
+    top: 70px;
+    transition: opacity 0.5s ease 0s;
+    width: 100vw;
+    z-index: -1;
+  }
+}
+
+body.mobile-nav-open header #header-bottom #header-nav #header-nav-mobile-backdrop {
+  height: 100vh;
+  opacity: 1;
+}
+
+header #header-bottom #header-nav ul {
+  list-style: none;
+  margin-bottom: 30px;
+  padding: 15px 30px 0;
+  position: relative;
+  z-index: 1;
+  li {
+    border-bottom: 1px solid #333;
+    &:last-of-type {
+      border-bottom: none;
+    }
+    a {
+      color: #FFF;
+      display: block;
+      font-size: 12px;
+      letter-spacing: .05em;
+      line-height: 45px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .5s ease 0s;
+      &:hover {
+        color: #E5B5C2;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 160px;
+    &.mobile-nav-open {
+      overflow: visible;
+      header {
+        height: auto;
+        overflow: hidden;
+      }
+    }
+  }
+  header {
+    #header-middle {
+      height: 78px;
+      margin: 0 20px;
+      #header-logo {
+        display: block;
+        padding: 12px 0 0;
+        text-align: center;
+        img {
+          width: 182px;
+        }
+      }
+    }
+    #header-bottom #header-nav {
+      background-color: #FFF;
+      height: auto;
+    }
+  }
+  body.mobile-nav-open header #header-bottom #header-nav {
+    height: auto;
+  }
+  header #header-bottom #header-nav ul {
+    margin-bottom: 12px;
+    padding-top: 14px;
+    text-align: center;
+    li {
+      border-color: transparent;
+      border-width: 0;
+      display: inline-block;
+      margin: 0 11px;
+      transition: border-color .5s ease 0s, border-width .5s ease 0s;
+      &:hover, &.active {
+        border-color: #F7D7E5;
+        border-width: 2px;
+      }
+      a {
+        color: #757575;
+        line-height: 18px;
+      }
+      &:hover a, &.active a {
+        color: #F7D7E5;
+      }
+    }
+  }
+}
